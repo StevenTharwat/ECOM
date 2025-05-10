@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile | Sellers Platform</title>
+    <script type="module" src="../../static/js/panel/settings.js"></script>
+    <style>
+      .profile-header {
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .profile-header h1 {
+        color: var(--text-primary);
+        font-size: 1.8rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+        font-weight: 500;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border: 1px solid var(--input-border);
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background-color: var(--input-bg);
+        color: var(--text-primary);
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--input-focus);
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+      }
+
+      .form-control::placeholder {
+        color: var(--text-muted);
+      }
+
+      .form-section {
+        background-color: rgba(15, 23, 42, 0.3);
+        padding: 1.5rem;
+        border-radius: var(--rounded);
+        margin-bottom: 2rem;
+      }
+
+      .form-section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--input-border);
+      }
+
+      .form-section-header h3 {
+        color: var(--text-primary);
+        font-size: 1.2rem;
+      }
+
+      .btn {
+        padding: 0.7rem 1.5rem;
+        border: none;
+        border-radius: var(--rounded);
+        background-color: var(--primary-color);
+        color: var(--white);
+        font-size: 0.95rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .btn:hover {
+        background-color: var(--primary-dark);
+      }
+
+      .form-footer {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .field-info {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin-top: 0.25rem;
+      }
+
+      .save-indicator {
+        display: none;
+        align-items: center;
+        color: var(--success-color);
+        font-size: 0.9rem;
+        margin-right: 1rem;
+      }
+
+      .save-indicator i {
+        margin-right: 0.5rem;
+      }
+
+      .error-message {
+        color: var(--error-color);
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .profile-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .profile-header h1 {
+          margin-bottom: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profile-header">
+      <h1>My Profile</h1>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-header">
+        <h3>Personal Information</h3>
+      </div>
+      <form id="profile-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            placeholder="Enter your full name"
+          />
+          <div class="error-message" id="name-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            placeholder="Enter your email address"
+          />
+          <div class="field-info">
+            We'll never share your email with anyone else.
+          </div>
+          <div class="error-message" id="email-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input
+            type="text"
+            id="address"
+            class="form-control"
+            placeholder="Enter your address"
+          />
+          <div class="error-message" id="address-error"></div>
+        </div>
+        <div class="form-footer">
+          <div class="save-indicator"><i>✓</i> Changes saved successfully!</div>
+          <button type="submit" class="btn">Save Changes</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-header">
+        <h3>Change Password</h3>
+      </div>
+      <form id="password-form">
+        <div class="form-group">
+          <label for="current-password">Current Password</label>
+          <input
+            type="password"
+            id="current-password"
+            class="form-control"
+            placeholder="Enter your current password"
+          />
+          <div class="error-message" id="current-password-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="new-password">New Password</label>
+          <input
+            type="password"
+            id="new-password"
+            class="form-control"
+            placeholder="Enter your new password"
+          />
+          <div class="field-info">
+            Password must be at least 6 characters long.
+          </div>
+          <div class="error-message" id="new-password-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm New Password</label>
+          <input
+            type="password"
+            id="confirm-password"
+            class="form-control"
+            placeholder="Confirm your new password"
+          />
+          <div class="error-message" id="confirm-password-error"></div>
+        </div>
+        <div class="form-footer">
+          <div class="save-indicator password-save-indicator">
+            <i>✓</i> Password updated successfully!
+          </div>
+          <button type="submit" class="btn">Update Password</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+why on load does not fired in include js? --because the dom has been loaded
+how to make global scripts run twice (when loaded) -- if it has import the browser will ignore it you have to change the url (by add Date.now())
+why this error when send complete html
+why form cancel btn reload the page 

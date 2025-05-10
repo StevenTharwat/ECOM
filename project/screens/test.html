@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dynamic Table & Form</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 8px;
+      }
+      input {
+        margin: 5px;
+      }
+      .error {
+        color: red;
+        font-size: 0.8em;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Product Table</h2>
+    <div id="formContainer"></div>
+    <div id="tableContainer"></div>
+
+    <script>
+      // 1. Define your class
+      class Product {
+        constructor(id, name, price) {
+          this.id = id;
+          this.name = name;
+          this.price = price;
+        }
+      }
+
+      // 2. Sample data
+      const products = [
+        new Product(1, "Laptop", 1200),
+        new Product(2, "Phone", 800),
+        new Product(3, "Tablet", 500),
+      ];
+
+      // 3. Regex validation patterns per field
+      const fieldValidators = {
+        id: /^\d+$/, // Only digits
+        name: /^[a-zA-Z ]{2,30}$/, // Letters and spaces
+        price: /^\d+(\.\d{1,2})?$/, // Digits, optional decimal
+      };
+
+      // 4. Create dynamic form
+      function generateForm(containerId, classArray, onSubmit) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = "";
+
+        if (!classArray.length) return;
+
+        const sample = classArray[0];
+        const fields = Object.keys(sample);
+
+        const form = document.createElement("form");
+        form.id = "productForm";
+
+        fields.forEach((field) => {
+          const input = document.createElement("input");
+          input.name = field;
+          input.placeholder = `Enter ${field}`;
+          input.required = true;
+          input.pattern = fieldValidators[field].source;
+          console.log(fieldValidators[field].source);
+
+          const label = document.createElement("label");
+          label.textContent = `${field}: `;
+          label.appendChild(input);
+          form.appendChild(label);
+          form.appendChild(document.createElement("br"));
+        });
+
+        const submitBtn = document.createElement("button");
+        submitBtn.textContent = "Add " + sample.constructor.name;
+        submitBtn.type = "submit";
+        form.appendChild(submitBtn);
+
+        const errorDiv = document.createElement("div");
+        errorDiv.className = "error";
+        form.appendChild(errorDiv);
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          errorDiv.textContent = "";
+
+          const formData = new FormData(form);
+          const values = {};
+
+          let isValid = true;
+          for (let [key, value] of formData.entries()) {
+            const regex = fieldValidators[key];
+            if (!regex.test(value)) {
+              isValid = false;
+              errorDiv.textContent = `Invalid value for ${key}`;
+              break;
+            }
+            values[key] =
+              key === "price" || key === "id" ? parseFloat(value) : value;
+          }
+
+          if (isValid) {
+            const newProduct = new Product(
+              values.id,
+              values.name,
+              values.price
+            );
+            onSubmit(newProduct);
+            form.reset();
+          }
+        });
+
+        container.appendChild(form);
+      }
+
+      // 5. Create dynamic table
+      function generateTable(classArray, containerId) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = "";
+
+        if (!classArray.length) {
+          container.innerHTML = "<p>No data</p>";
+          return;
+        }
+
+        const table = document.createElement("table");
+
+        // Table header
+        const headers = Object.keys(classArray[0]);
+        const thead = document.createElement("thead");
+        const headerRow = document.createElement("tr");
+        headers.forEach((header) => {
+          const th = document.createElement("th");
+          th.textContent = header;
+          headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        // Table body
+        const tbody = document.createElement("tbody");
+        classArray.forEach((obj) => {
+          const row = document.createElement("tr");
+          headers.forEach((key) => {
+            const td = document.createElement("td");
+            td.textContent = obj[key];
+            row.appendChild(td);
+          });
+          tbody.appendChild(row);
+        });
+
+        table.appendChild(tbody);
+        container.appendChild(table);
+      }
+
+      // 6. Run everything
+      generateForm("formContainer", products, (newItem) => {
+        products.push(newItem);
+        generateTable(products, "tableContainer");
+      });
+      generateTable(products, "tableContainer");
+    </script>
+  </body>
+</html>

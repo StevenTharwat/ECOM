@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="module" src="../../static/js/panel/component.js"></script>
+  </head>
+  <body>
+    <div id="mainDiv">
+      <!-- Main Content -->
+      <div class="header">
+        <h1 id="headerTitle">components Management</h1>
+        <button id="addcomponentBtn" class="btn btn-primary">
+          <i class="fas fa-plus"></i> Add New component
+        </button>
+      </div>
+
+      <!-- Table -->
+      <div class="content-card">
+        <!-- table-header | title / search -->
+        <div class="table-header">
+          <h2 id="tableTitle" class="table-title">All components</h2>
+          <form class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search components..."
+            />
+          </form>
+        </div>
+
+        <!-- table-header | title / search -->
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr id="tableHeader">
+                <!-- <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Actions</th> -->
+              </tr>
+            </thead>
+            <tbody id="componentsTableBody">
+              <!-- Table rows will be dynamically generated -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- pagination -->
+        <div id="pagination"></div>
+      </div>
+
+      <!-- Modal - Add/Edit component -->
+      <div id="componentModal" class="modal-backdrop">
+        <div class="modal">
+          <div class="modal-header">
+            <h3 id="modalTitle" class="modal-title">Add New component</h3>
+            <button class="close-modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form enctype="multipart/form-data" id="componentForm"></form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Delete Confirmation Modal -->
+      <div id="deleteModal" class="modal-backdrop">
+        <div class="modal">
+          <div class="modal-header">
+            <h3 class="modal-title">Confirm Delete</h3>
+            <button class="close-modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Are you sure you want to delete this component? This action cannot
+              be undone.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline close-modal">Cancel</button>
+            <button id="confirmDeleteBtn" class="btn btn-danger">
+              Delete component
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+project structure:
+user roles: Admin, Customer, Seller, and Anonymous => permissions, access levels
+products, orders
+
+database:
+user: (id, name, email, pass, role)
+cat: (id, name, price, cat, images, sellerId)
+category: (name)                                                               --k=> need id
+order: (id, userID, orderDetail[--id--, productId, count, status, sellerId])   --k=>need price 
+
+user queries: CRUD
+C => users/{obj}
+R => users/                                                                  --k(if time)=>users/userName
+U => user/id --decode(id)
+D => user/id --decode(id)
+
+product queries: CRUD
+C => product/{obj} => filter with the userId for the user, category/{object}
+R => product/                                                              --k(if time)=>products/productName
+U => product/id
+D => product/id , update 
+
+
+                                                                              --k=>category needs cruds
+
+
+questions:
+delete or update order details on delete order ?
+is status is for product order is combine of many products with deferent sellers     --k=>order has one state regardless no ofproducts

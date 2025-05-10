@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce | Registration</title>
+    <link rel="stylesheet" href="../static/css/registration.css" />
+    <script type="module" src="../static/js/registration.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="image-section">
+        <div class="image-overlay"></div>
+        <div class="image-content">
+          <div class="image-illustration"></div>
+          <h2>Become a Ecom</h2>
+          <p>Create your Ecom account and start selling your products today</p>
+        </div>
+      </div>
+
+      <div class="registration-section">
+        <div class="registration-header">
+          <div class="brand-icon">🛒</div>
+          <h1>Register as Ecom</h1>
+          <p>Fill in your details to create an account</p>
+        </div>
+
+        <form class="registration-form" id="registrationForm">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+              required
+            />
+            <div class="error-message" id="emailError">
+              Please enter a valid email address
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              name="username"
+              placeholder="Choose a username"
+              pattern="^[a-zA-Z0-9_-]{3,16}$"
+              required
+            />
+            <div class="error-message" id="usernameError">
+              Username must be 3-16 characters and can contain letters, numbers,
+              underscores and hyphens
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              placeholder="Create a password"
+              pattern="^.{3,}$"
+              required
+            />
+            <div class="error-message" id="passwordError">
+              Password must be at least 3 characters
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cpassword">confirm Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="cpassword"
+              name="cpassword"
+              placeholder="confirm password"
+              pattern="^.{3,}$"
+              required
+            />
+            <div class="error-message" id="cpasswordError">
+              Passwords do not match
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="role">Role</label>
+            <select class="form-control" id="role" name="role" required>
+              <option value="buyer" selected>buyer</option>
+              <option value="seller">Ecom</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn">Create Account</button>
+
+          <div class="form-footer">
+            <p>Already have an account? <a href="login.html">Sign in</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

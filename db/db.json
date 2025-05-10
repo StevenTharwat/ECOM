@@ -1,0 +1,50 @@
+{
+  "users": [
+    {
+      "id": "622ca9a7-f639-4eff-84fd-1ded635e8d74",
+      "name": "steven",
+      "email": "stevven.helmy@gmail.com",
+      "pass": "MTIz",
+      "role": "admin",
+      "orders": []
+    },
+    {
+      "id": "f547e4db-2ef2-4670-b4a1-b419875ec277",
+      "name": "steven2ks",
+      "email": "buyer@gmail.com",
+      "pass": "MTIz",
+      "role": "buyer",
+      "orders": []
+    },
+    {
+      "id": "2ae278c7-b06e-436e-a69b-1eca3de9ea10",
+      "name": "steven2",
+      "email": "seller@gmail.com",
+      "pass": "MTIz",
+      "role": "seller",
+      "orders": []
+    }
+  ],
+  "products": [
+    {
+      "id": "78332797-79d7-4e42-a605-11f3b2ab08d4",
+      "name": "pro5",
+      "price": "550.99",
+      "cat": "toys",
+      "img": "445.jpg",
+      "sellerId": "2ae278c7-b06e-436e-a69b-1eca3de9ea10",
+      "status": "pending",
+      "CreatedAt": "10/05/2025"
+    },
+    {
+      "id": "c63299f2-7843-4885-b949-0785d77b01f1",
+      "name": "pro7",
+      "price": "58.5",
+      "cat": "clothing",
+      "img": "4k-wallpaper-adorable-blur-boy-1148998.jpg",
+      "sellerId": "622ca9a7-f639-4eff-84fd-1ded635e8d74",
+      "status": "pending",
+      "CreatedAt": "10/05/2025"
+    }
+  ]
+}

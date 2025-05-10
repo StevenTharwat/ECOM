@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Sellers Platform</title>
+    <script type="module" src="../../static/js/panel/dashboard.js"></script>
+    <style>
+      .dashboard-header {
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .dashboard-header h1 {
+        color: var(--text-primary);
+        font-size: 1.8rem;
+        margin: 0;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .stat-card {
+        background-color: rgba(15, 23, 42, 0.3);
+        border-radius: var(--rounded);
+        padding: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-left: 4px solid;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+
+      .stat-card.users {
+        border-left-color: var(--primary-color);
+      }
+
+      .stat-card.products {
+        border-left-color: var(--success-color);
+      }
+
+      .stat-card.orders {
+        border-left-color: var(--warning-color);
+      }
+
+      .stat-card.items {
+        border-left-color: var(--info-color);
+      }
+
+      .stat-card h2 {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        margin-top: 0;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .stat-card h2 span {
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+      }
+
+      .stat-value {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-change {
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .stat-change.positive {
+        color: var(--success-color);
+      }
+
+      .stat-change.negative {
+        color: var(--error-color);
+      }
+
+      .refresh-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: var(--rounded);
+        background-color: var(--primary-color);
+        color: var(--white);
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        display: flex;
+        align-items: center;
+      }
+
+      .refresh-btn:hover {
+        background-color: var(--primary-dark);
+      }
+
+      .refresh-btn span {
+        margin-right: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashBody">
+      <div class="dashboard-header">
+        <h1>Dashboard</h1>
+        <button id="refresh-btn" class="refresh-btn">
+          <span>🔄</span> Refresh Data
+        </button>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card users">
+          <h2><span>👥</span> Total Users</h2>
+          <div class="stat-value" id="users-count">--</div>
+          <div class="stat-change" id="users-change">--</div>
+        </div>
+
+        <div class="stat-card products">
+          <h2><span>🛒</span> Products</h2>
+          <div class="stat-value" id="products-count">--</div>
+          <div class="stat-change" id="products-change">--</div>
+        </div>
+
+        <div class="stat-card orders">
+          <h2><span>📦</span> Orders</h2>
+          <div class="stat-value" id="orders-count">--</div>
+          <div class="stat-change" id="orders-change">--</div>
+        </div>
+
+        <div class="stat-card items">
+          <h2><span>📝</span> Items</h2>
+          <div class="stat-value" id="items-count">--</div>
+          <div class="stat-change" id="items-change">--</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

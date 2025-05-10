@@ -1,0 +1,25 @@
+d- update email taken
+d- admin panal refactor add forms 
+d- pagination & s  earch
+d- aside => change content
+- dynamic table --delay
+- add permitions (pages, actions)
+- change all page dynamicly for every user role 
+- product and order module
+- user pages (index - products - cart - checkout - track order)
+
+ann. user story => 
+index => {contact, about, products, login-regestration}
+login => index => {hi uname, new nav:manage-site, card~add to cart + checkout}
+user => permitions (adminP) 
+    user => orders (CRUD)
+    seller => products, orders (CRUD)
+    admin => every thing (CRUD)
+    -------
+    dashboard 
+    -------
+    403 page if not Auth
+    ann user !=> login page
+
+settings => theme(if time), delete my account, update my account 
+documentation

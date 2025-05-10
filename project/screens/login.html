@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce Ecom Portal | Login</title>
+    <link rel="stylesheet" href="../static/css/login.css" />
+    <script type="module" src="../static/js/login.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="image-section">
+        <div class="image-overlay"></div>
+        <div class="image-content">
+          <div class="image-illustration"></div>
+          <h2>Ecom Portal</h2>
+          <p>
+            Manage your products and grow your business with our powerful
+            e-commerce platform
+          </p>
+        </div>
+      </div>
+
+      <div class="login-section">
+        <div class="login-header">
+          <div class="brand-icon">🛍️</div>
+          <h1>Welcome Back</h1>
+          <p>Sign in to your Ecom account</p>
+        </div>
+
+        <form class="login-form" id="loginForm">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+              required
+            />
+            <div class="error-message" id="emailError">
+              Please enter a valid email address
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              pattern="^.{3,}$"
+              required
+            />
+            <div class="error-message" id="passwordError">
+              Password must be at least 3 characters
+            </div>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="remember" name="remember" />
+            <label for="remember">Remember me on this device</label>
+          </div>
+
+          <button type="submit" class="btn">Sign In</button>
+
+          <div class="form-footer">
+            <p>
+              Don't have an account?
+              <a href="registration.html">Registration</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
