@@ -1,10 +1,15 @@
 import * as userDB from './db/userDB.js'
 
 window.addEventListener('load', async function() {
-        
-        if(await userDB.isLogged() == 1)
-            window.location.href = '../screens/panel/adminP.html';
-    
+          let role = atob(localStorage.getItem(btoa('role')));
+        if(await userDB.isLogged() == 1){
+           if(role == 'admin'){
+               window.location.href = '../screens/panel/adminP.html';
+           } else {
+               window.location.href = '../index.html';
+           }
+        }
+
     // Login form handling
     const loginForm = document.getElementById('loginForm');
     const emailInput = document.getElementById('email');
@@ -53,8 +58,11 @@ window.addEventListener('load', async function() {
             
             //success
             userDB.login(u,remember.checked);
-            window.location.href = '../screens/panel/adminP.html'; //change later
-
+            if(role == 'admin'){
+               window.location.href = '../screens/panel/adminP.html';
+           } else {
+               window.location.href = '../index.html';
+           }
         } else {
             alert('Invalid credentials. Please try again.');
         }

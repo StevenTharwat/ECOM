@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RedStore | About Us</title>
+    <link rel="stylesheet" href="../static/css/about.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="container">
+        <div class="navbar">
+          <div class="logo">
+            <a href="../index.html">
+              <img
+                src="../static/images/k&S_logo.png"
+                alt="logo"
+                width="125px"
+              />
+            </a>
+          </div>
+          <nav>
+            <ul id="MenuItems">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="about.html" class="active">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="panel/adminP.html">panel</a></li>
+              <li>
+                <a id="loginA" href="login.html" class="login-btn"
+                  ><i class="fa fa-user"></i>
+                  <span id="userLogin">Login</span></a
+                >
+              </li>
+              <li>
+                <a id="logOutA" class="login-btn">
+                  <span id="userLogin">Login Out</span></a
+                >
+              </li>
+            </ul>
+          </nav>
+          <div class="cart-container">
+            <a href="cart.html" class="cart-link">
+              <i class="fa fa-shopping-cart"></i>
+              <span class="cart-count">0</span>
+            </a>
+          </div>
+          <img
+            src="../static/images/menu.png"
+            class="menu-icon"
+            onclick="menutoggle()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- About Content -->
+    <div class="about-container">
+      <div class="container">
+        <div class="row">
+          <div class="col-2">
+            <h1>Your Style, Your Way</h1>
+            <p>Discover the perfect blend of fashion and comfort</p>
+          </div>
+          <div class="col-2">
+            <img src="../static/images/image1.png" alt="About Us" />
+          </div>
+        </div>
+
+        <div class="about-content">
+          <div class="section">
+            <h2>Our Story</h2>
+            <p>
+              Founded in 2020, RedStore emerged from a simple vision: to make
+              quality fashion accessible to everyone. We believe that great
+              style shouldn't compromise on comfort or break the bank.
+            </p>
+          </div>
+
+          <div class="row features">
+            <div class="col-3">
+              <i class="fa fa-truck"></i>
+              <h3>Fast Delivery</h3>
+              <p>Free shipping on orders over $50</p>
+            </div>
+            <div class="col-3">
+              <i class="fa fa-refresh"></i>
+              <h3>Easy Returns</h3>
+              <p>30-day hassle-free returns</p>
+            </div>
+            <div class="col-3">
+              <i class="fa fa-shield"></i>
+              <h3>Secure Shopping</h3>
+              <p>100% secure payments</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="social-media">
+          <a href="#" class="social-icon"><i class="fa fa-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="fa fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fa fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fa fa-linkedin"></i></a>
+        </div>
+        <hr />
+        <p class="copyright">Copyright 2025 - Steven & Kareem</p>
+      </div>
+    </div>
+
+    <script type="module" src="../static/js/about.js"></script>
+    <script src="../static/js/globalFuncs.js"></script>
+  </body>
+</html>

@@ -1,12 +1,23 @@
 import * as userDB from './db/userDB.js'
 
+
 window.addEventListener('load', async function(e) {
-    let data = await userDB.get();
-    console.log(data);
-    for (const el of data) {
-        console.log(el instanceof userDB.User);
+    debugger
+    let id = atob( localStorage.getItem("login"));
+    let data = await userDB.get(id);
+
+    if(id){
+        document.getElementById('userLogin').innerText = data[0].name;
+        document.getElementById('loginA').href = 'index.html'
+        this.document.getElementById('loginNow').innerText = 'Go To Shopping';
+        this.document.getElementById('loginNow').href = 'screens/products.html';
     }
-    updateCartCount();
+   document.getElementById('logOutA').addEventListener('click', function(e){
+        userDB.logout();
+        window.location.href = 'login.html';
+    });
+    
+
     document.body.style.backgroundColor = "var(--background)";
     document.body.style.color = "var(--text-primary)";
 });
@@ -21,14 +32,6 @@ function menutoggle() {
     } else {
         MenuItems.style.maxHeight = "0px";
     }
-}
-
-// Cart functionality
-function updateCartCount() {
-    const cartCount = document.querySelector('.cart-count');
-    // Get cart items from localStorage or set to 0 if none exist
-    const count = JSON.parse(localStorage.getItem('cartItems'))?.length || 0;
-    cartCount.textContent = count;
 }
 
 // Ensure menu items have correct text color

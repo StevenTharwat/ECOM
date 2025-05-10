@@ -1,0 +1,101 @@
+/* Import base styles */
+@import url("index.css");
+
+/* About Page Styles */
+.about-container {
+  padding: 50px 0;
+  background: var(--bg-light);
+}
+
+.about-container .col-2 {
+  padding: 20px;
+}
+
+.about-container h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.about-content {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.section {
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.section h2 {
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.section p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Features Section */
+.features {
+  margin-top: 60px;
+  justify-content: center;
+  gap: 30px;
+}
+
+.about-container .container .about-content .row.features .col-3 {
+  text-align: center;
+  padding: 30px;
+  background: var(--card-bg);
+  border-radius: var(--rounded);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.about-container .container .about-content .row.features .col-3:hover {
+  transform: translateY(-10px);
+}
+
+.col-3 i {
+  font-size: 40px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.col-3 h3 {
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.col-3 p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 800px) {
+  .about-container h1 {
+    font-size: 36px;
+  }
+
+  .about-container .row {
+    flex-direction: column;
+  }
+
+  .about-container .col-2 {
+    text-align: center;
+  }
+
+  .features {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .col-3 {
+    margin: 0 20px;
+  }
+}

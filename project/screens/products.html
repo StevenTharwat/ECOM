@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RedStore | Products</title>
+    <link rel="stylesheet" href="../static/css/products.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="container">
+        <div class="navbar">
+          <div class="logo">
+            <a href="../index.html">
+              <img
+                src="../static/images/k&S_logo.png"
+                alt="logo"
+                width="125px"
+              />
+            </a>
+          </div>
+          <nav>
+            <ul id="MenuItems">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="products.html" class="active">Products</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="panel/adminP.html">panel</a></li>
+              <li>
+                <a id="loginA" href="login.html" class="login-btn"
+                  ><i class="fa fa-user"></i>
+                  <span id="userLogin">Login</span></a
+                >
+              </li>
+              <li>
+                <a id="logOutA" class="login-btn">
+                  <span id="userLogin">Login Out</span></a
+                >
+              </li>
+            </ul>
+          </nav>
+          <div class="cart-container">
+            <a href="cart.html" class="cart-link">
+              <i class="fa fa-shopping-cart"></i>
+              <span class="cart-count">0</span>
+            </a>
+          </div>
+          <img
+            src="../static/images/menu.png"
+            class="menu-icon"
+            onclick="menutoggle()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="products-container">
+      <div class="small-container">
+        <div class="row row-2">
+          <h2>All Products</h2>
+          <div class="search-container">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search products..."
+            />
+            <button id="searchBtn"><i class="fa fa-search"></i></button>
+          </div>
+          <div class="filters">
+            <select id="categoryFilter">
+              <option value="">All Categories</option>
+              <!-- dynamic catgories from db.json -->
+            </select>
+            <select id="sortFilter">
+              <option value="default">Default Sorting</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">By Rating</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="ProductFlex" class="row products-flex">
+          <!-- Products will be dynamically inserted here -->
+        </div>
+
+        <div id="pagination">
+          <button id="prevPage" class="page-btn">
+            <i class="fa fa-angle-left"></i>
+          </button>
+          <div id="pageNumbers" class="page-numbers">
+            <!-- Page numbers will be dynamically inserted here -->
+          </div>
+          <button id="nextPage" class="page-btn">
+            <i class="fa fa-angle-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="social-media">
+          <a href="#" class="social-icon"><i class="fa fa-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="fa fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fa fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fa fa-linkedin"></i></a>
+        </div>
+        <hr />
+        <p class="copyright">Copyright 2025 - Steven & Kareem</p>
+      </div>
+    </div>
+    <script type="module" src="../static/js/products.js"></script>
+    <script src="../static/js/globalFuncs.js"></script>
+  </body>
+</html>
