@@ -9,6 +9,7 @@ window.addEventListener('load', async function() {
     const emailError = document.getElementById('emailError');
     const usernameError = document.getElementById('usernameError');
     const passwordError = document.getElementById('passwordError');
+    const userAddressError = document.getElementById('userAddressError');
     const cpassword = document.getElementById('cpassword');
     
     // Form field validation
@@ -24,6 +25,10 @@ window.addEventListener('load', async function() {
         password: { 
             regex: /^.{3,}$/, 
             error: passwordError 
+        },
+        Address: { 
+            regex: /^.{3,}$/, 
+            error: userAddressError 
         }
     };
     
@@ -71,10 +76,11 @@ window.addEventListener('load', async function() {
         const formData = {
             email: document.getElementById('email').value,
             name: document.getElementById('username').value,
-            pass: document.getElementById('password').value, // Base64 encode password
+            address: document.getElementById('Address').value,
+            pass: document.getElementById('password').value, 
             role: document.getElementById('role').value
         };
-        let u = new userDB.User(formData.name, formData.email, formData.pass, formData.role)
+        let u = new userDB.User(formData.name, formData.email, formData.pass, formData.role, null, [], false, formData.address)
         if(await userDB.getUserByemail(formData.email, '') == null)
         {
             await userDB.add(u);

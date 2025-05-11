@@ -8,9 +8,13 @@ const Settings = document.getElementById("Settings");
 const orders = document.getElementById("orders");
 const Dashboard = document.getElementById("Dashboard");
 const mainNavigation = document.getElementById("mainNavigation");
+const panelT = document.getElementById("panelT");
 
 window.onhashchange = renderPage;
 window.addEventListener('load', function(e) { 
+  panelT.addEventListener('click', function(e) {
+    window.location.href = '../../index.html';
+  });
   setPermition();
   logOut.addEventListener('click', function (e) {
     userDB.logout();
@@ -34,7 +38,9 @@ window.addEventListener('load', function(e) {
 })
 
 const setPermition = function() {
+  debugger
   let role = atob( localStorage.getItem(btoa('role')));
+  if(!role) document.body.innerText = "Not Found";
   if(!(Controller.root.users.r.toLowerCase().includes(role)))users.style.display = 'none';
   if(!(Controller.root.products.r.toLowerCase().includes(role)))products.style.display = 'none';
   if(!(Controller.root.orders.r.toLowerCase().includes(role)))orders.style.display = 'none';

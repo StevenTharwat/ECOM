@@ -6,11 +6,19 @@ let mainURL = 'http://localhost:3000/users';
 export const get = async function (id =null) {
     let users = []
     let data = await dbGate.get(mainURL, id);
+    let address = '';
+    
         if(id){
-            users.push(new User(data.name, data.email, data.pass, data.role, data.id,data.orders,false));
+    if(data.address){
+        address = data.address;
+    }
+            users.push(new User(data.name, data.email, data.pass, data.role, data.id,data.orders,false, address));
     }else{
         for (const el of data) {
-            users.push(new User(el.name, el.email, el.pass, el.role, el.id,el.orders,false))
+            if(el.address){
+                address = el.address;
+            }
+            users.push(new User(el.name, el.email, el.pass, el.role, el.id,el.orders,false, address))
         }
     }
     return users;
@@ -43,7 +51,7 @@ export const isFound = async function (email, pass) {
     return null;
 }
 
-const getUserById = async function (id) {
+export const getUserById = async function (id) {
     let data = await get(id);
     if(data){
         let user = data[0];
@@ -92,8 +100,9 @@ export const logout= function () {
 }
 
 export const isLogged= async function () {
+    debugger
     let id = localStorage.getItem('login');
-    let rememberMe = localStorage.getItem('login');
+    let rememberMe = localStorage.getItem('rm');
     if(id != null && await getUserById(atob(id)) != null){
         if(rememberMe == 'true') return 1;
         return 0;
@@ -107,15 +116,17 @@ export class User {
     email; 
     _pass;
     role; 
+    address; 
     orders = [];
 
-    constructor(_name, _email, _password, _role, _id = null, _orders = [], incript = true) {
+    constructor(_name, _email, _password, _role, _id = null, _orders = [], incript = true, _address = '') {
         this.id = _id == null ? crypto.randomUUID() : _id;
         this.name = _name;
         this.email = _email;
         this.pass = incript ? _password : atob(_password);
         this.role = _role;
         this.orders = _orders;
+        this.address = _address;
     }
 
     set pass(_pass) {
@@ -135,6 +146,7 @@ export class User {
           email: this.email,
           pass: this._pass,
           role: this.role,
+          address: this.address,
           orders: this.orders
         };
     }

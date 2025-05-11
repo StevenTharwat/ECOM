@@ -470,3 +470,6 @@ body {
     display: block;
   }
 }
+.sidebar-header{
+  cursor: pointer;
+}

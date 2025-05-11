@@ -108,7 +108,8 @@ export let root = {
                 name: "status",
                 type: "options",
                 hidden: false,
-                enable: true,
+                enable: atob( localStorage.getItem(btoa('role')))== 'admin'? true : false,
+
                 regex: /^.{1,}$/,
                 getOptions: function() {
                     return productDB.getStatus();

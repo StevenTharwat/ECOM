@@ -58,6 +58,8 @@ window.addEventListener('load', async function() {
             
             //success
             userDB.login(u,remember.checked);
+            debugger
+            role = atob(localStorage.getItem(btoa('role')));
             if(role == 'admin'){
                window.location.href = '../screens/panel/adminP.html';
            } else {

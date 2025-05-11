@@ -3,10 +3,11 @@ import * as userDB from './db/userDB.js'
 
 window.addEventListener('load', async function(e) {
     debugger
-    let id = atob( localStorage.getItem("login"));
-    let data = await userDB.get(id);
-
+    let id =  localStorage.getItem("login");
+    
     if(id){
+        id = atob(id);
+        let data = await userDB.get(id);
         document.getElementById('userLogin').innerText = data[0].name;
         document.getElementById('loginA').href = 'index.html'
         this.document.getElementById('loginNow').innerText = 'Go To Shopping';
@@ -14,7 +15,7 @@ window.addEventListener('load', async function(e) {
     }
    document.getElementById('logOutA').addEventListener('click', function(e){
         userDB.logout();
-        window.location.href = 'login.html';
+        window.location.href = 'screens/login.html';
     });
     
 

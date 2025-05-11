@@ -10,7 +10,7 @@
         margin-bottom: 2rem;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-productsellescount: center;
       }
 
       .dashboard-header h1 {
@@ -57,7 +57,7 @@
         border-left-color: var(--warning-color);
       }
 
-      .stat-card.items {
+      .stat-card.productSellesCount {
         border-left-color: var(--info-color);
       }
 
@@ -67,7 +67,7 @@
         margin-top: 0;
         margin-bottom: 1rem;
         display: flex;
-        align-items: center;
+        align-productsellescount: center;
       }
 
       .stat-card h2 span {
@@ -84,7 +84,7 @@
       .stat-change {
         font-size: 0.9rem;
         display: flex;
-        align-items: center;
+        align-productsellescount: center;
       }
 
       .stat-change.positive {
@@ -105,7 +105,7 @@
         cursor: pointer;
         transition: background-color 0.3s;
         display: flex;
-        align-items: center;
+        align-productsellescount: center;
       }
 
       .refresh-btn:hover {
@@ -130,25 +130,21 @@
         <div class="stat-card users">
           <h2><span>👥</span> Total Users</h2>
           <div class="stat-value" id="users-count">--</div>
-          <div class="stat-change" id="users-change">--</div>
         </div>
 
         <div class="stat-card products">
           <h2><span>🛒</span> Products</h2>
           <div class="stat-value" id="products-count">--</div>
-          <div class="stat-change" id="products-change">--</div>
         </div>
 
         <div class="stat-card orders">
           <h2><span>📦</span> Orders</h2>
           <div class="stat-value" id="orders-count">--</div>
-          <div class="stat-change" id="orders-change">--</div>
         </div>
 
-        <div class="stat-card items">
-          <h2><span>📝</span> Items</h2>
-          <div class="stat-value" id="items-count">--</div>
-          <div class="stat-change" id="items-change">--</div>
+        <div class="stat-card productSellesCount">
+          <h2><span>📝</span> Product Selles Count</h2>
+          <div class="stat-value" id="productSellesCount-count">--</div>
         </div>
       </div>
     </div>

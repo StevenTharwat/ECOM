@@ -2,10 +2,11 @@
   "users": [
     {
       "id": "622ca9a7-f639-4eff-84fd-1ded635e8d74",
-      "name": "steven",
+      "name": "steven123",
       "email": "stevven.helmy@gmail.com",
       "pass": "MTIz",
       "role": "admin",
+      "address": "102 Ebaid",
       "orders": []
     },
     {

@@ -1,16 +1,14 @@
-// Simulate a user database
-const userData = {
-    name: "Steven",
-    address: "5st cairo egypt",
-    email: "steven@example.com",
-    pass: "123",
-  };
-
-  document.addEventListener("DOMContentLoaded", function () {
+import * as userDB from "../db/userDB.js";
+let localStorageId ;
+let Data ;
+  const init = async function () {
+    debugger
+    localStorageId = atob( localStorage.getItem('login'));
+    if(localStorageId) Data = await userDB.getUserById(localStorageId);
     // Set initial values
-    document.getElementById("name").value = userData.name;
-    document.getElementById("address").value = userData.address;
-    document.getElementById("email").value = userData.email;
+    document.getElementById("name").value = Data.name;
+    document.getElementById("address").value = Data.address;
+    document.getElementById("email").value = Data.email;
 
     // Handle form submission
     document
@@ -40,26 +38,17 @@ const userData = {
           hideError("address-error");
         }
 
-        if (!email) {
-          showError("email-error", "Email is required");
-          isValid = false;
-        } else if (!isValidEmail(email)) {
-          showError("email-error", "Please enter a valid email address");
-          isValid = false;
-        } else {
-          hideError("email-error");
-        }
-
         // If form is valid, save the data
         if (isValid) {
           // Update user data
-          userData.name = name;
-          userData.address = address;
-          userData.email = email;
+          Data.name = name;
+          Data.address = address;
 
           // Show save indicator
           const saveIndicator = document.querySelector(".save-indicator");
           saveIndicator.style.display = "flex";
+
+          userDB.Update(Data);
 
           // Hide save indicator after 3 seconds
           setTimeout(function () {
@@ -90,7 +79,7 @@ const userData = {
             "Current password is required"
           );
           isValid = false;
-        } else if (currentPassword !== userData.pass) {
+        } else if (currentPassword !== Data.pass) {
           showError(
             "current-password-error",
             "Current password is incorrect"
@@ -103,10 +92,10 @@ const userData = {
         if (!newPassword) {
           showError("new-password-error", "New password is required");
           isValid = false;
-        } else if (newPassword.length < 6) {
+        } else if (newPassword.length < 3) {
           showError(
             "new-password-error",
-            "Password must be at least 6 characters"
+            "Password must be at least 3 characters"
           );
           isValid = false;
         } else {
@@ -128,8 +117,9 @@ const userData = {
 
         // If form is valid, save the password
         if (isValid) {
+          debugger
           // Update user password
-          userData.pass = newPassword;
+          Data.pass = newPassword;
 
           // Clear password fields
           document.getElementById("current-password").value = "";
@@ -141,14 +131,14 @@ const userData = {
             ".password-save-indicator"
           );
           saveIndicator.style.display = "flex";
-
+          userDB.Update(Data);
           // Hide save indicator after 3 seconds
           setTimeout(function () {
             saveIndicator.style.display = "none";
           }, 3000);
         }
       });
-  });
+  };
 
   // Helper functions
   function showError(id, message) {
@@ -161,7 +151,4 @@ const userData = {
     document.getElementById(id).style.display = "none";
   }
 
-  function isValidEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  }
+  init();
