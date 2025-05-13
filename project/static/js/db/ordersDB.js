@@ -11,6 +11,7 @@ get orders by sellerId => getOrders(null,sellerId);
 get orders in specific user and sellerId => getOrders(userId,sellerId);
 */
 export const get = async function(userId=null, sellerId=null){
+    debugger
     let role = atob( localStorage.getItem(btoa('role')));
     let localStorageId = atob( localStorage.getItem('login'));
     if(role == 'seller'){
@@ -37,6 +38,10 @@ export const get = async function(userId=null, sellerId=null){
 const EditOrder =async function(order, method){
     //search for user
     let user = await userDB.getUserByOrderId(order.id);
+    if(!user) {
+        let id = atob( localStorage.getItem("login"));
+        user = await userDB.getUserById(id);
+    }
     if(user){
         debugger
         //delete order
@@ -64,7 +69,7 @@ export const Delete = async function(order){
         await EditOrder(order, 'd');
 }
 
-export const getStatus = async function(){
+export const getStatus = function(){
     return ['pending', 'shipped', 'delivered', 'canceled'];
 }
 
@@ -80,6 +85,7 @@ export class Order {
     buyerUser; //d
     CreatedAt;
     constructor(_id,_productId,_productName,_quantity,_status=null,_sellerId,_sellerName,_userId,_buyerUser, _createdAt = null){
+        debugger
         if(!_status || _status == null){
             _status = getStatus()[0]; 
         }
@@ -103,7 +109,8 @@ export class Order {
         return {
           id: this.id,
           productId: this.productId,
-          quantity: this.quantity,
+          quantity: this.quantity.toString(),
+          sellerId: this.sellerId,
           status: this.status,
           createdAt: this.CreatedAt
         };

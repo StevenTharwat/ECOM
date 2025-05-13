@@ -2,12 +2,29 @@
   "users": [
     {
       "id": "622ca9a7-f639-4eff-84fd-1ded635e8d74",
-      "name": "steven123",
+      "name": "steven",
       "email": "stevven.helmy@gmail.com",
       "pass": "MTIz",
       "role": "admin",
       "address": "102 Ebaid",
-      "orders": []
+      "orders": [
+        {
+          "id": "96437509-a9ac-4246-a6a7-ac8b05bfb323",
+          "productId": "78332797-79d7-4e42-a605-11f3b2ab08d4",
+          "quantity": "1",
+          "sellerId": "2ae278c7-b06e-436e-a69b-1eca3de9ea10",
+          "status": "pending",
+          "createdAt": "13/05/2025"
+        },
+        {
+          "id": "538ca22c-fc67-45cd-9ca1-27b9d5c749ba",
+          "productId": "c63299f2-7843-4885-b949-0785d77b01f1",
+          "quantity": "4",
+          "sellerId": "622ca9a7-f639-4eff-84fd-1ded635e8d74",
+          "status": "pending",
+          "createdAt": "13/05/2025"
+        }
+      ]
     },
     {
       "id": "f547e4db-2ef2-4670-b4a1-b419875ec277",

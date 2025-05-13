@@ -46,6 +46,8 @@ select:focus {
 }
 
 .product-card img {
+  max-height: 120px;
+  object-fit: cover;
   width: 100%;
   border-radius: var(--rounded);
   margin-bottom: 10px;

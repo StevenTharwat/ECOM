@@ -63,7 +63,7 @@ function applyFiltersAndSort() {
 
   // Apply category filter
   if (category) {
-    filtered = filtered.filter((product) => product.cat == cat);
+    filtered = filtered.filter((product) => product.cat == category);
   }
 
   // Apply sorting
@@ -241,10 +241,12 @@ function renderPagination() {
 
 // Initialize ::DOMContentLoaded=> fires before external resources
 document.addEventListener("DOMContentLoaded", async () => {
-    let id = atob( localStorage.getItem("login"));
+  let id = atob( localStorage.getItem("login"));
+  let idUnDecrpited = localStorage.getItem("login");
+  if(idUnDecrpited ){
       let data = await userDB.get(id);
   
-      if(id){
+
           document.getElementById('userLogin').innerText = data[0].name;
           document.getElementById('loginA').href = '../index.html'
       }
