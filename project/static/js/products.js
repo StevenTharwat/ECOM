@@ -63,7 +63,7 @@ function applyFiltersAndSort() {
 
   // Apply category filter
   if (category) {
-    filtered = filtered.filter((product) => product.cat == category);
+    filtered = filtered.filter((product) => product.cat.toLowerCase() == category.toLowerCase());
   }
 
   // Apply sorting
@@ -252,10 +252,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
      document.getElementById('logOutA').addEventListener('click', function(e){
           userDB.logout();
-          window.location.href = '../login.html';
+          window.location.href = '../screens/login.html';
       });
   setupEventListeners();
-  sampleProducts = await productDB.get();
+  sampleProducts = (await productDB.get(null,"v")).filter((product) => product.status == 'Approved');
   filteredProducts = [...sampleProducts];
   populateCategoryFilter(filteredProducts);
   renderProducts();

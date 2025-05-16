@@ -118,19 +118,25 @@ export class User {
     role; 
     address; 
     orders = [];
+    _incript ;
 
     constructor(_name, _email, _password, _role, _id = null, _orders = [], incript = true, _address = '') {
+        debugger
         this.id = _id == null ? crypto.randomUUID() : _id;
         this.name = _name;
         this.email = _email;
-        this.pass = incript ? _password : atob(_password);
+        this._incript = incript;
+        this.pass = _password;
         this.role = _role;
         this.orders = _orders;
         this.address = _address;
     }
 
     set pass(_pass) {
-        
+        if(this._incript == false) {
+            this._pass = _pass;
+            return;
+        }
         this._pass = btoa(_pass);
     }
 

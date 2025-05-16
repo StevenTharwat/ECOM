@@ -7,6 +7,7 @@ window.addEventListener('load', async function() {
     const registrationForm = document.getElementById('registrationForm');
     const email = document.getElementById('email');
     const emailError = document.getElementById('emailError');
+    const emailTakenError = document.getElementById('emailTakenError');
     const usernameError = document.getElementById('usernameError');
     const passwordError = document.getElementById('passwordError');
     const userAddressError = document.getElementById('userAddressError');
@@ -16,19 +17,19 @@ window.addEventListener('load', async function() {
     const formFields = {
         email: { 
             regex: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 
-            error: emailError 
+            error: [emailError, emailTakenError] 
         },
         username: { 
             regex: /^[a-zA-Z0-9_-]{3,16}$/, 
-            error: usernameError
+            error: [usernameError]
         },
         password: { 
             regex: /^.{3,}$/, 
-            error: passwordError 
+            error: [passwordError]
         },
         Address: { 
             regex: /^.{3,}$/, 
-            error: userAddressError 
+            error: [userAddressError] 
         }
     };
     
@@ -40,9 +41,9 @@ window.addEventListener('load', async function() {
         input.addEventListener('input', function() {
             const isValid = regex.test(this.value);
             if (isValid || this.value === '') {
-                error.style.display = 'none';
+                error.forEach(err => err.style.display = 'none');
             } else {
-                error.style.display = 'block';
+                error.forEach(err => err.style.display = 'block');
             }
         });
 
@@ -71,7 +72,7 @@ window.addEventListener('load', async function() {
         if (!registrationForm.checkValidity()) {
             return false;
         }
-        
+        debugger
         // Collect form data
         const formData = {
             email: document.getElementById('email').value,
@@ -80,7 +81,7 @@ window.addEventListener('load', async function() {
             pass: document.getElementById('password').value, 
             role: document.getElementById('role').value
         };
-        let u = new userDB.User(formData.name, formData.email, formData.pass, formData.role, null, [], false, formData.address)
+        let u = new userDB.User(formData.name, formData.email, formData.pass, formData.role, null, [], formData.address)
         if(await userDB.getUserByemail(formData.email, '') == null)
         {
             await userDB.add(u);
@@ -90,6 +91,7 @@ window.addEventListener('load', async function() {
         else
         {
             email.setCustomValidity('this email is taken try to login');
+            emailTakenError.style.display = 'block';
         }
        
         

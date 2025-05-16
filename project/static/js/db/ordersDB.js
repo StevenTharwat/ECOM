@@ -70,7 +70,7 @@ export const Delete = async function(order){
 }
 
 export const getStatus = function(){
-    return ['pending', 'shipped', 'delivered', 'canceled'];
+    return ['Pending', 'shipped', 'delivered', 'canceled'];
 }
 
 export class Order {

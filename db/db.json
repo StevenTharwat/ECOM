@@ -1,68 +1,143 @@
 {
   "users": [
     {
-      "id": "622ca9a7-f639-4eff-84fd-1ded635e8d74",
+      "id": "5b821ea2-f64f-4750-a3a1-ecc42fa561f9",
       "name": "steven",
       "email": "stevven.helmy@gmail.com",
       "pass": "MTIz",
       "role": "admin",
-      "address": "102 Ebaid",
-      "orders": [
-        {
-          "id": "96437509-a9ac-4246-a6a7-ac8b05bfb323",
-          "productId": "78332797-79d7-4e42-a605-11f3b2ab08d4",
-          "quantity": "1",
-          "sellerId": "2ae278c7-b06e-436e-a69b-1eca3de9ea10",
-          "status": "pending",
-          "createdAt": "13/05/2025"
-        },
-        {
-          "id": "538ca22c-fc67-45cd-9ca1-27b9d5c749ba",
-          "productId": "c63299f2-7843-4885-b949-0785d77b01f1",
-          "quantity": "4",
-          "sellerId": "622ca9a7-f639-4eff-84fd-1ded635e8d74",
-          "status": "pending",
-          "createdAt": "13/05/2025"
-        }
-      ]
-    },
-    {
-      "id": "f547e4db-2ef2-4670-b4a1-b419875ec277",
-      "name": "steven2ks",
-      "email": "buyer@gmail.com",
-      "pass": "MTIz",
-      "role": "buyer",
+      "address": "",
       "orders": []
     },
     {
-      "id": "2ae278c7-b06e-436e-a69b-1eca3de9ea10",
-      "name": "steven2",
+      "id": "509a98b1-69ac-4cc5-8468-fbb92639fdcc",
+      "name": "Seller",
       "email": "seller@gmail.com",
       "pass": "MTIz",
       "role": "seller",
+      "address": "",
       "orders": []
+    },
+    {
+      "id": "b35df7c7-6956-418f-9d1f-d502535b9633",
+      "name": "seller2",
+      "email": "seller2@gmail.com",
+      "pass": "MTIz",
+      "role": "seller",
+      "address": "",
+      "orders": []
+    },
+    {
+      "id": "a452046e-ba33-4e26-9594-191940443e2f",
+      "name": "buyer",
+      "email": "buyer@gmail.com",
+      "pass": "MTIz",
+      "role": "buyer",
+      "address": "",
+      "orders": [
+        {
+          "id": "12b85532-09d8-46bf-bc03-2be56d0dad48",
+          "productId": "3281fed7-66ea-4494-a3ac-82ecd12a0c16",
+          "quantity": "2",
+          "sellerId": "509a98b1-69ac-4cc5-8468-fbb92639fdcc",
+          "status": "shipped",
+          "createdAt": "16/05/2025"
+        },
+        {
+          "id": "cdfc9ccc-5a7d-49f9-b5d0-953215e0a167",
+          "productId": "fc029896-bedc-43b2-8424-3a36a7d73651",
+          "quantity": "1",
+          "sellerId": "509a98b1-69ac-4cc5-8468-fbb92639fdcc",
+          "status": "delivered",
+          "createdAt": "16/05/2025"
+        },
+        {
+          "id": "99c1c4e0-df4a-4910-9fd3-f540a8aade0c",
+          "productId": "4cb0a936-3c36-4c1c-8f7d-552938c85373",
+          "quantity": "1",
+          "sellerId": "b35df7c7-6956-418f-9d1f-d502535b9633",
+          "status": "delivered",
+          "createdAt": "16/05/2025"
+        },
+        {
+          "id": "c874287a-a20c-4de4-ad23-1881c0807d66",
+          "productId": "67516959-89da-449e-acc3-02bca99b3951",
+          "quantity": "1",
+          "sellerId": "b35df7c7-6956-418f-9d1f-d502535b9633",
+          "status": "delivered",
+          "createdAt": "16/05/2025"
+        },
+        {
+          "id": "7e6a2324-b68c-484e-bc0e-615ff5106aca",
+          "productId": "0f59e265-486a-4fb6-8352-6d70af89c78e",
+          "quantity": "1",
+          "sellerId": "b35df7c7-6956-418f-9d1f-d502535b9633",
+          "status": "canceled",
+          "createdAt": "16/05/2025"
+        }
+      ]
     }
   ],
   "products": [
     {
-      "id": "78332797-79d7-4e42-a605-11f3b2ab08d4",
-      "name": "pro5",
-      "price": "550.99",
-      "cat": "toys",
-      "img": "445.jpg",
-      "sellerId": "2ae278c7-b06e-436e-a69b-1eca3de9ea10",
-      "status": "pending",
-      "CreatedAt": "10/05/2025"
+      "id": "3281fed7-66ea-4494-a3ac-82ecd12a0c16",
+      "name": "iPhone 5",
+      "price": "5000",
+      "cat": "Phones",
+      "img": "5.jpeg",
+      "sellerId": "509a98b1-69ac-4cc5-8468-fbb92639fdcc",
+      "status": "Approved",
+      "CreatedAt": "16/05/2025"
     },
     {
-      "id": "c63299f2-7843-4885-b949-0785d77b01f1",
-      "name": "pro7",
-      "price": "58.5",
-      "cat": "clothing",
-      "img": "4k-wallpaper-adorable-blur-boy-1148998.jpg",
-      "sellerId": "622ca9a7-f639-4eff-84fd-1ded635e8d74",
-      "status": "pending",
-      "CreatedAt": "10/05/2025"
+      "id": "fc029896-bedc-43b2-8424-3a36a7d73651",
+      "name": "iPhone 10",
+      "price": "10000",
+      "cat": "Phones",
+      "img": "10.png",
+      "sellerId": "509a98b1-69ac-4cc5-8468-fbb92639fdcc",
+      "status": "Approved",
+      "CreatedAt": "16/05/2025"
+    },
+    {
+      "id": "9c79ef29-19ad-40a6-bd3a-e30087a61b3e",
+      "name": "iPhone 15",
+      "price": "15000",
+      "cat": "Phones",
+      "img": "15.jpg",
+      "sellerId": "509a98b1-69ac-4cc5-8468-fbb92639fdcc",
+      "status": "not Approved",
+      "CreatedAt": "16/05/2025"
+    },
+    {
+      "id": "4cb0a936-3c36-4c1c-8f7d-552938c85373",
+      "name": "xiaomi1",
+      "price": "1000",
+      "cat": "sports",
+      "img": "x1.png",
+      "sellerId": "b35df7c7-6956-418f-9d1f-d502535b9633",
+      "status": "Approved",
+      "CreatedAt": "16/05/2025"
+    },
+    {
+      "id": "67516959-89da-449e-acc3-02bca99b3951",
+      "name": "xiaomi2",
+      "price": "2000",
+      "cat": "sports",
+      "img": "x2.jpg",
+      "sellerId": "b35df7c7-6956-418f-9d1f-d502535b9633",
+      "status": "Approved",
+      "CreatedAt": "16/05/2025"
+    },
+    {
+      "id": "0f59e265-486a-4fb6-8352-6d70af89c78e",
+      "name": "xiaomi3",
+      "price": "3000",
+      "cat": "sports",
+      "img": "x3.png",
+      "sellerId": "b35df7c7-6956-418f-9d1f-d502535b9633",
+      "status": "Approved",
+      "CreatedAt": "16/05/2025"
     }
   ]
 }

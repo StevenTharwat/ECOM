@@ -48,6 +48,7 @@ window.addEventListener('load', async function() {
     // Login form submission
     loginForm.addEventListener('submit', async function(e) {
         e.preventDefault();
+        debugger
         // Check if the form is valid
         if (!loginForm.checkValidity()) {
             return false;

@@ -2,7 +2,7 @@ import * as dbGate from './dbGate.js'
 import * as userDB from './userDB.js'
 let mainURL = 'http://localhost:3000/products';
 
-export const get = async function(id=null){
+export const get = async function(id=null, method='s'){
     let role = atob( localStorage.getItem(btoa('role')));
     let localStorageId = atob( localStorage.getItem('login'));
     let users = await userDB.get();
@@ -13,7 +13,7 @@ export const get = async function(id=null){
         if(!sellerName) sellerName = '';
         products.push(new Product(el.id, el.name, el.price, el.cat, el.img, el.sellerId , sellerName, el.status, el.CreatedAt));
     }
-    if(role == 'seller'){
+    if(role == 'seller' && method=='s'){
         products = products.filter(pr=>pr.sellerId == localStorageId);
     }
     return products
@@ -34,11 +34,11 @@ export const Delete = async function(product){
         await dbGate.del(mainURL,product.id);
 }
 export const getStatus = function(){
-    return ['pending', 'approved', 'not Approved'];
+    return ['Pending', 'Approved', 'not Approved'];
 }
 
 export const getCat = function(){
-    return ['electronics', 'furniture', 'clothing', 'toys', 'books', 'sports', 'food', 'health', 'beauty', 'automotive', 'jewelry', 'home', 'garden', 'office', 'pet supplies', 'baby', 'music', 'movies', 'video games', 'software', 'tools', 'hardware', 'outdoor', 'travel', 'gifts', 'seasonal', 'collectibles', 'art', 'crafts', 'hobbies', 'photography', 'watches', 'accessories', 'shoes', 'bags', 'luggage', 'sunglasses', 'eyewear', 'headphones', 'speakers', 'cameras', 'drones', 'smartphones', 'tablets', 'computers', 'laptops', 'desktops', 'monitors', 'printers', 'scanners', 'routers', 'modems', 'networking devices', 'smart home devices', 'wearable technology', 'fitness trackers', 'smartwatches', 'virtual reality', 'augmented reality', '3D printing', 'robotics', 'diy electronics', 'arduino', 'raspberry pi', 'iot devices', 'home automation', 'home security', 'home entertainment', 'home theater', 'home audio', 'home video', 'home appliances', 'kitchen appliances', 'laundry appliances', 'cleaning appliances', 'heating and cooling appliances', 'air conditioning', 'heating systems', 'ventilation systems', 'water heaters', 'water filtration', 'water softeners', 'plumbing fixtures', 'bathroom fixtures', 'kitchen fixtures', 'lighting fixtures', 'ceiling fans', 'outdoor lighting', 'landscaping', 'gardening tools', 'lawn care', 'pest control', 'fertilizers', 'soil amendments', 'plant food', 'plant care', 'plant protection', 'plant support', 'plant containers', 'plant pots', 'plant stands', 'plant shelves', 'plant hangers'];
+    return [ 'electronics', 'furniture', 'clothing', 'toys', 'books', 'sports', 'food','Phones', 'health', 'beauty', 'automotive', 'jewelry', 'home', 'garden', 'office', 'pet supplies', 'baby', 'music', 'movies', 'video games', 'software', 'tools', 'hardware', 'outdoor', 'travel', 'gifts', 'seasonal', 'collectibles', 'art', 'crafts', 'hobbies', 'photography', 'watches', 'accessories', 'shoes', 'bags', 'luggage', 'sunglasses', 'eyewear', 'headphones', 'speakers', 'cameras', 'drones', 'smartphones', 'tablets', 'computers', 'laptops', 'desktops', 'monitors', 'printers', 'scanners', 'routers', 'modems', 'networking devices', 'smart home devices', 'wearable technology', 'fitness trackers', 'smartwatches', 'virtual reality', 'augmented reality', '3D printing', 'robotics', 'diy electronics', 'arduino', 'raspberry pi', 'iot devices', 'home automation', 'home security', 'home entertainment', 'home theater', 'home audio', 'home video', 'home appliances', 'kitchen appliances', 'laundry appliances', 'cleaning appliances', 'heating and cooling appliances', 'air conditioning', 'heating systems', 'ventilation systems', 'water heaters', 'water filtration', 'water softeners', 'plumbing fixtures', 'bathroom fixtures', 'kitchen fixtures', 'lighting fixtures', 'ceiling fans', 'outdoor lighting', 'landscaping', 'gardening tools', 'lawn care', 'pest control', 'fertilizers', 'soil amendments', 'plant food', 'plant care', 'plant protection', 'plant support', 'plant containers', 'plant pots', 'plant stands', 'plant shelves', 'plant hangers'];
 }
 
 export class Product {

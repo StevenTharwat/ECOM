@@ -56,7 +56,7 @@ export let root = {
         module: productDB,
         class: productDB.Product,
         c:"seller",
-        r:"admin-seller-buyer",
+        r:"admin-seller",
         u:"admin-seller",
         d:"admin-seller",
         fields: [{

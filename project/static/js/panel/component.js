@@ -98,7 +98,7 @@ const setPermition = function() {
           else
               searchData = data.filter(ar => {
                   for (let field of rootElement.fields) {
-                      if (ar[field.name].toString().includes(search.value.trim())) return true;
+                      if (ar[field.name].toString().toLowerCase().includes(search.value.trim().toLowerCase())) return true;
                   }
               });
           paging(true);
