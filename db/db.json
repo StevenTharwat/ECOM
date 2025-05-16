@@ -29,11 +29,11 @@
     },
     {
       "id": "a452046e-ba33-4e26-9594-191940443e2f",
-      "name": "buyer",
+      "name": "buyer1",
       "email": "buyer@gmail.com",
       "pass": "MTIz",
       "role": "buyer",
-      "address": "",
+      "address": "102 Ebaid",
       "orders": [
         {
           "id": "12b85532-09d8-46bf-bc03-2be56d0dad48",
@@ -76,6 +76,15 @@
           "createdAt": "16/05/2025"
         }
       ]
+    },
+    {
+      "id": "5263e5a2-c1bc-4381-a685-4372f8140e31",
+      "name": "user",
+      "email": "buyer2@gmail.com",
+      "pass": "MTIz",
+      "role": "buyer",
+      "address": "",
+      "orders": []
     }
   ],
   "products": [
