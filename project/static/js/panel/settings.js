@@ -19,7 +19,6 @@ let Data ;
         // Get form values
         const name = document.getElementById("name").value.trim();
         const address = document.getElementById("address").value.trim();
-        const email = document.getElementById("email").value.trim();
 
         // Validate form
         let isValid = true;

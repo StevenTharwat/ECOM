@@ -16,19 +16,21 @@ export const get = async function(userId=null, sellerId=null){
     let localStorageId = atob( localStorage.getItem('login'));
     if(role == 'seller'){
         sellerId = localStorageId;
-    }else if(role == 'user'){
+    }else if(role == 'buyer'){
         userId = localStorageId;
     }
     let allOrders = []; 
     let allProducts = await productDB.get();
-    let users = await userDB.get(userId);
+    let allUsers = await userDB.get();debugger;
+    let users = allUsers.filter(us => us.id == userId);
     for (const user of users) {
         let userOlders =user.orders;
         //fileter by sellerId if not null
         if(sellerId) userOlders = userOlders.filter(order=>order.sellerId == sellerId);
         for (const order of userOlders) {
+            debugger
             let product = allProducts.find(pr=>pr.id == order.productId);
-            let seller = users.find(us=>us.id == product.sellerId);
+            let seller = allUsers.find(us=>us.id == product.sellerId);
             allOrders.push(new Order(order.id, product.id, product.name, order.quantity, order.status, product.sellerId, seller.name,user.id,user.name));
         }
     }
