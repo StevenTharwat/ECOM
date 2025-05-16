@@ -77,11 +77,12 @@ window.addEventListener('load', async function() {
         const formData = {
             email: document.getElementById('email').value,
             name: document.getElementById('username').value,
-            address: document.getElementById('Address').value,
+            Address: document.getElementById('Address').value,
             pass: document.getElementById('password').value, 
             role: document.getElementById('role').value
         };
-        let u = new userDB.User(formData.name, formData.email, formData.pass, formData.role, null, [], formData.address)
+        debugger
+        let u = new userDB.User(formData.name, formData.email, formData.pass, formData.role, null, [], true,formData.Address)
         if(await userDB.getUserByemail(formData.email, '') == null)
         {
             await userDB.add(u);
