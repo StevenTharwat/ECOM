@@ -63,6 +63,7 @@ cd ECOM
 # For the main server
 cd server
 npm install
+npm install multer
 
 # For the database
 cd ../db
