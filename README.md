@@ -16,7 +16,7 @@
 
 A modern e-commerce platform built with vanilla JavaScript, featuring role-based access control, product management, and order processing.
 
-![Homepage](static/images/screenshots/homepage.png)
+![Homepage](https://github.com/StevenTharwat/ECOM/blob/main/ScreenShots/1.png)
 
 ## 🌟 Features
 
@@ -120,14 +120,22 @@ ECOM/
 
 ## 🖥️ Screenshots
 
+### Login & Registration 
+![Login](https://github.com/StevenTharwat/ECOM/blob/main/ScreenShots/2.png)
+![Registration](https://github.com/StevenTharwat/ECOM/blob/main/ScreenShots/3.png)
+
+
 ### Product Listing
-![Products](/ECOM/project/static/images/products.png)
+![Products](https://github.com/StevenTharwat/ECOM/blob/main/ScreenShots/8.png)
 
 ### Admin Dashboard
-![Dashboard](static/images/screenshots/dashboard.png)
+![Dashboard](https://github.com/StevenTharwat/ECOM/blob/main/ScreenShots/4.png)
+![Dashboard](https://github.com/StevenTharwat/ECOM/blob/main/ScreenShots/5.png)
+![Dashboard](https://github.com/StevenTharwat/ECOM/blob/main/ScreenShots/6.png)
+![Dashboard](https://github.com/StevenTharwat/ECOM/blob/main/ScreenShots/7.png)
 
 ### Shopping Cart
-![Cart](static/images/screenshots/cart.png)
+![Cart](https://github.com/StevenTharwat/ECOM/blob/main/ScreenShots/9.png)
 
 ## 🔒 Security Features
 
